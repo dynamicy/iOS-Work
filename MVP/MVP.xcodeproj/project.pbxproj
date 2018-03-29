@@ -14,6 +14,9 @@
 		B973CD1A206C9B2100301083 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B973CD18206C9B2100301083 /* LaunchScreen.storyboard */; };
 		B973CD25206C9B2100301083 /* MVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B973CD24206C9B2100301083 /* MVPTests.swift */; };
 		B973CD30206C9B2100301083 /* MVPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B973CD2F206C9B2100301083 /* MVPUITests.swift */; };
+		B973CD3F206C9CCA00301083 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B973CD3E206C9CCA00301083 /* Person.swift */; };
+		B973CD42206C9D7C00301083 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B973CD41206C9D7C00301083 /* GreetingView.swift */; };
+		B973CD45206C9DDC00301083 /* GreetingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B973CD44206C9DDC00301083 /* GreetingPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		B973CD2B206C9B2100301083 /* MVPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B973CD2F206C9B2100301083 /* MVPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPUITests.swift; sourceTree = "<group>"; };
 		B973CD31206C9B2100301083 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B973CD3E206C9CCA00301083 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		B973CD41206C9D7C00301083 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		B973CD44206C9DDC00301083 /* GreetingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,8 @@
 		B973CD0E206C9B2100301083 /* MVP */ = {
 			isa = PBXGroup;
 			children = (
+				B973CD46206C9DE200301083 /* Greeting */,
 				B973CD0F206C9B2100301083 /* AppDelegate.swift */,
-				B973CD11206C9B2100301083 /* ViewController.swift */,
 				B973CD13206C9B2100301083 /* Main.storyboard */,
 				B973CD16206C9B2100301083 /* Assets.xcassets */,
 				B973CD18206C9B2100301083 /* LaunchScreen.storyboard */,
@@ -123,6 +129,41 @@
 				B973CD31206C9B2100301083 /* Info.plist */,
 			);
 			path = MVPUITests;
+			sourceTree = "<group>";
+		};
+		B973CD3D206C9CB900301083 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B973CD3E206C9CCA00301083 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B973CD40206C9D4700301083 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B973CD11206C9B2100301083 /* ViewController.swift */,
+				B973CD41206C9D7C00301083 /* GreetingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B973CD43206C9DBA00301083 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B973CD44206C9DDC00301083 /* GreetingPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B973CD46206C9DE200301083 /* Greeting */ = {
+			isa = PBXGroup;
+			children = (
+				B973CD3D206C9CB900301083 /* Model */,
+				B973CD40206C9D4700301083 /* View */,
+				B973CD43206C9DBA00301083 /* Presenter */,
+			);
+			path = Greeting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B973CD3F206C9CCA00301083 /* Person.swift in Sources */,
+				B973CD45206C9DDC00301083 /* GreetingPresenter.swift in Sources */,
+				B973CD42206C9D7C00301083 /* GreetingView.swift in Sources */,
 				B973CD12206C9B2100301083 /* ViewController.swift in Sources */,
 				B973CD10206C9B2100301083 /* AppDelegate.swift in Sources */,
 			);
