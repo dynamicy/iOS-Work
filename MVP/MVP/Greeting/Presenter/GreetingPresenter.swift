@@ -2,15 +2,21 @@
 //  GreetingPresenter.swift
 //  MVP
 //
-//  Created by Chris Huang 黃信文 (奧圖碼) on 29/03/2018.
+//  Created by Chris on 29/03/2018.
 //  Copyright © 2018 chris. All rights reserved.
 //
 
 import Foundation
 
-protocol GreetingPresenter {
+class GreetingPresenter {
     
-    func showGreeting()
+    let view: GreetingView
     
-    init(view: GreetingView, person: Person)
+    required init(view: GreetingView) {
+        self.view = view
+    }
+    
+    func showGreeting(person : Person) {
+        self.showGreeting(person: person)
+    }
 }
