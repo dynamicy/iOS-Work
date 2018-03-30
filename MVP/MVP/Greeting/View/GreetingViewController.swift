@@ -17,18 +17,17 @@ class GreetingViewController: UIViewController, GreetingView {
     
     @IBOutlet weak var greetingButton : UIButton?
     
-    @IBAction func click(_ sender: Any) {
+    @IBAction func click(_ sender: UIButton!) {
         self.presenter?.showGreeting()
     }
     
     // Time delay
-    private let timeDelay: Double = 2.0
+    private let timeDelay: Double = 1.0
     
     var presenter : GreetingPresenter? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter = GreetingPresenter(view: self)
     }
     
@@ -41,9 +40,9 @@ class GreetingViewController: UIViewController, GreetingView {
         let alertController = UIAlertController(title: "", message: msg, preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
         
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay) {
-//            alertController.dismiss(animated: false, completion: nil)
-//        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDelay) {
+            alertController.dismiss(animated: false, completion: nil)
+        }
     }
     
     func getFirstName() -> String {

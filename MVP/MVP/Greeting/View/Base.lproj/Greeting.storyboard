@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,17 +45,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khi-SD-ynG">
-                                <rect key="frame" x="20" y="340" width="335" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="mjE-Gr-aT6"/>
-                                </constraints>
-                                <state key="normal" title="Greeting"/>
-                                <connections>
-                                    <action selector="click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6L3-Nx-eRe"/>
-                                    <action selector="showGreeting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lUP-st-57G"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56v-g3-DLC" userLabel="Last Name Text Field">
                                 <rect key="frame" x="20" y="250" width="335" height="40"/>
                                 <constraints>
@@ -65,19 +54,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpB-Zo-Vld">
+                                <rect key="frame" x="20" y="340" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4U2-wx-hbU"/>
+                                </constraints>
+                                <state key="normal" title="Greeting"/>
+                                <connections>
+                                    <action selector="click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SUM-dM-rvE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="78v-7b-NoM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2q1-y6-hEs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="78v-7b-NoM" secondAttribute="trailing" constant="20" id="4PV-Tl-EZe"/>
-                            <constraint firstItem="khi-SD-ynG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="75X-G7-PKU"/>
-                            <constraint firstItem="khi-SD-ynG" firstAttribute="top" secondItem="56v-g3-DLC" secondAttribute="bottom" constant="50" id="KPd-6Q-3Zh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vpB-Zo-Vld" secondAttribute="trailing" constant="20" id="4bf-5Q-uY8"/>
+                            <constraint firstItem="vpB-Zo-Vld" firstAttribute="top" secondItem="56v-g3-DLC" secondAttribute="bottom" constant="50" id="9Kb-sN-2q4"/>
                             <constraint firstItem="RvX-nX-3Uu" firstAttribute="top" secondItem="N9f-XZ-tmW" secondAttribute="bottom" constant="20" id="Mhb-vj-mJX"/>
                             <constraint firstItem="56v-g3-DLC" firstAttribute="top" secondItem="RvX-nX-3Uu" secondAttribute="bottom" constant="20" id="P0Q-bu-i20"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RvX-nX-3Uu" secondAttribute="trailing" constant="20" id="PEt-qA-9wI"/>
                             <constraint firstItem="N9f-XZ-tmW" firstAttribute="top" secondItem="78v-7b-NoM" secondAttribute="bottom" constant="20" id="baE-Ca-IEa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="khi-SD-ynG" secondAttribute="trailing" constant="20" id="dlm-ik-PYw"/>
                             <constraint firstItem="78v-7b-NoM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="iE0-bP-Rpt"/>
+                            <constraint firstItem="vpB-Zo-Vld" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jup-rd-LTX"/>
                             <constraint firstItem="RvX-nX-3Uu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oLb-d2-ROa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="56v-g3-DLC" secondAttribute="trailing" constant="20" id="rbd-uc-NSa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N9f-XZ-tmW" secondAttribute="trailing" constant="20" id="sUT-k9-Hql"/>
@@ -88,7 +87,7 @@
                     </view>
                     <connections>
                         <outlet property="firstNameTextField" destination="N9f-XZ-tmW" id="Sz2-cb-NAF"/>
-                        <outlet property="greetingButton" destination="khi-SD-ynG" id="Ydc-ZS-1KR"/>
+                        <outlet property="greetingButton" destination="vpB-Zo-Vld" id="jEg-2F-LQe"/>
                         <outlet property="lastNameTextField" destination="56v-g3-DLC" id="14R-Rs-ul2"/>
                     </connections>
                 </viewController>
