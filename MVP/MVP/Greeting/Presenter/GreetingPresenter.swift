@@ -16,7 +16,7 @@ class GreetingPresenter {
         self.view = view
     }
     
-    func showGreeting(person : Person) {
-        self.showGreeting(person: person)
+    func showGreeting() {
+        view.showGreeting()
     }
 }

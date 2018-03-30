@@ -10,7 +10,7 @@ import Foundation
 
 protocol GreetingView {
     
-    func showGreeting(person : Person)
+    func showGreeting()
     
     func showAlert(msg: String, after:()->(Void))
     
