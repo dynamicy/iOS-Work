@@ -40,6 +40,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return datas.count
     }
     
+    // Manipulate cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Get cell
@@ -51,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return tableCell
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
