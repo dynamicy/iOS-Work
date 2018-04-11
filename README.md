@@ -5,3 +5,4 @@ iOS Samples.
 ## Features
 
 * MVP
+* Custom Table View.
