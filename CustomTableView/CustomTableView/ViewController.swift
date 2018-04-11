@@ -10,14 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // Image name
-    private final let imageName = "restaurant"
-    
     // Cell ID
     private final let cellIdentifier = "Cell"
     
     var datas = ["Apple", "Banana", "Car", "Dog", "Elephant", "Frog", "Good", "Heaven", "Iron Man", "Joker",
-                 "King", "Lion", "Man", "Nice", "Orange", "People", "Queen"]
+                 "King", "Lion", "Man", "Nice", "Orange", "People", "Queen", "Race", "Seven", "Television",
+                 "Universe", "Volume"]
     
     // Manipulate datas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,19 +29,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Set cell
         tableCell.textLabel?.text = datas[indexPath.row]
-        tableCell.imageView?.image = UIImage(named: imageName)
+        tableCell.imageView?.image = UIImage(named: datas[indexPath.row] as String)
         
         return tableCell
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var prefersStatusBarHidden: Bool {
