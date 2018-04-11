@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // Image name
+    private final let imageName = "restaurant"
+    
+    // Cell ID
+    private final let cellIdentifier = "Cell"
+    
     var datas = ["Apple", "Banana", "Car", "Dog"]
     
     // Manipulate datas
@@ -18,13 +24,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "Cell"
         
         // Get cell
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
         // Set cell
         tableCell.textLabel?.text = datas[indexPath.row]
+        tableCell.imageView?.image = UIImage(named: imageName)
         
         return tableCell
     }
