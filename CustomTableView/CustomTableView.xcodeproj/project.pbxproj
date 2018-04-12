@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83D08915207F7DF70039D01B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D08914207F7DF70039D01B /* DetailViewController.swift */; };
 		B9515887207DD72C00826B0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9515886207DD72C00826B0A /* AppDelegate.swift */; };
 		B9515889207DD72C00826B0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9515888207DD72C00826B0A /* ViewController.swift */; };
 		B951588C207DD72C00826B0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B951588A207DD72C00826B0A /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83D08914207F7DF70039D01B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B9515883207DD72C00826B0A /* CustomTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9515886207DD72C00826B0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9515888207DD72C00826B0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				B951588D207DD72D00826B0A /* Assets.xcassets */,
 				B951588F207DD72D00826B0A /* LaunchScreen.storyboard */,
 				B9515892207DD72D00826B0A /* Info.plist */,
+				83D08914207F7DF70039D01B /* DetailViewController.swift */,
 			);
 			path = CustomTableView;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				B9FEC9AD207EEBDF00E5FA45 /* TableViewCell.swift in Sources */,
 				B9515889207DD72C00826B0A /* ViewController.swift in Sources */,
 				B9515887207DD72C00826B0A /* AppDelegate.swift in Sources */,
+				83D08915207F7DF70039D01B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37BZLLD35D;
+				DEVELOPMENT_TEAM = 66XLEP8FNC;
 				INFOPLIST_FILE = CustomTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,7 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37BZLLD35D;
+				DEVELOPMENT_TEAM = 66XLEP8FNC;
 				INFOPLIST_FILE = CustomTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

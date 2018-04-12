@@ -43,6 +43,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="i7j-zS-qhV" kind="show" identifier="showDetail" id="8Oi-f0-i0v"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -72,6 +75,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="0dy-Ts-lQy">
+            <objects>
+                <viewController id="i7j-zS-qhV" customClass="DetailViewController" customModule="CustomTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eQH-Up-twl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-0a-Hs8">
+                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pjs-0a-Hs8" firstAttribute="centerX" secondItem="eQH-Up-twl" secondAttribute="centerX" id="3Hy-xS-HUu"/>
+                            <constraint firstItem="Pjs-0a-Hs8" firstAttribute="centerY" secondItem="eQH-Up-twl" secondAttribute="centerY" id="nlw-5k-XMv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r85-eY-naT"/>
+                    </view>
+                    <connections>
+                        <outlet property="cellLabel" destination="Pjs-0a-Hs8" id="h9f-QE-TrR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUW-Ds-aRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="34"/>
         </scene>
     </scenes>
 </document>
