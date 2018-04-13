@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  StoryBoardReference
 //
-//  Created by Chris Huang 黃信文 (奧圖碼) on 2018/4/13.
+//  Created by Chris on 2018/4/13.
 //  Copyright © 2018 chris. All rights reserved.
 //
 

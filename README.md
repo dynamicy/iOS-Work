@@ -5,4 +5,5 @@ iOS Samples.
 ## Features
 
 * MVP
-* Custom Table View.
+* Custom Table View
+* Storyboard Reference
