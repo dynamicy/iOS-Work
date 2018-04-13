@@ -65,10 +65,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
             if let indexPath = tableView.indexPathForSelectedRow {
