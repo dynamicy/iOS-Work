@@ -13,4 +13,10 @@ class DetailViewController : UIViewController {
     @IBOutlet weak var cellLabel : UILabel!
     
     var cellLabelText = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        cellLabel.text = cellLabelText
+    }
 }

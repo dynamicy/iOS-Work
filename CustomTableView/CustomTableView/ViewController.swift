@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Xib name
     private let xibName = "TableViewCell"
     
+    // Segue ID
+    private let segueIdentifier = "showDetail"
+    
     var datas = ["Apple", "Banana", "Car", "Dog", "Elephant", "Frog", "Good", "Heaven", "Iron Man", "Joker",
                  "King", "Lion", "Man", "Nice", "Orange", "People", "Queen", "Race", "Seven", "Television",
                  "Universe", "Volume"]
@@ -57,13 +60,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return tableCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Perform prepare
+        self.performSegue(withIdentifier: segueIdentifier, sender: nil)
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            
+        if segue.identifier == segueIdentifier {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                // Getting the current cell from the index path
+                let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewCell
+                let controller = segue.destination as! DetailViewController
+                controller.cellLabelText = currentCell.cellLabel.text!
+                present(controller, animated: true, completion: nil)
+            }
         }
     }
     
