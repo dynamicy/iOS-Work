@@ -13,16 +13,19 @@
         <!--Red View Controller-->
         <scene sceneID="YWa-jH-Fa7">
             <objects>
-                <viewController id="ECS-1r-LfZ" userLabel="Red View Controller" sceneMemberID="viewController">
+                <viewController id="ECS-1r-LfZ" userLabel="Red View Controller" customClass="RedViewController" customModule="StoryBoardReference" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bOH-hH-Rsl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lS4-8u-YTX">
-                                <rect key="frame" x="164" y="318.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="158" y="315.5" width="58" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="QFF-Sr-3EW" kind="show" id="Gbg-1u-3xn"/>
+                                    <segue destination="p7B-79-dcz" kind="show" identifier="toBlue" id="tPz-IW-Rj4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,22 +40,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOQ-70-pWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="708"/>
+            <point key="canvasLocation" x="24.800000000000001" y="707.49625187406298"/>
         </scene>
-        <!--Blue View Controller-->
-        <scene sceneID="Ifd-a5-r3b">
+        <!--Blue-->
+        <scene sceneID="JTk-Qm-O9H">
             <objects>
-                <viewController id="QFF-Sr-3EW" userLabel="Blue View Controller" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nil-8G-Xug">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="Xqe-lF-shv"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VTP-CO-JE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Blue" id="p7B-79-dcz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKX-Xk-TQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="707"/>
+            <point key="canvasLocation" x="962" y="707"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="udA-0n-N8o">
