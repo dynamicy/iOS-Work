@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CustomTableView.xcodeproj">
+      location = "self:/Users/chrissw.huang/Work/iOS-Work/CustomTableView/CustomTableViewXib.xcodeproj">
    </FileRef>
 </Workspace>
