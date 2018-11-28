@@ -36,13 +36,13 @@ extension ViewController {
     private func setupCalendarView() {
         calendarWeekView.baseDelegate = self
         
-        if viewModel.currentSelectedData != nil {            
+        if viewModel.currentSelectedData != nil {
             setupCalendarViewWithSelectedData()
         } else {
             calendarWeekView.setupCalendar(numOfDays: 1,
                                            setDate: Date(),
                                            allEvents: viewModel.eventsByDate,
-                                           scrollType: .pageScroll)
+                                           scrollType: .sectionScroll)
         }
         
         // LongPress delegate, datasorce and type setup
@@ -52,7 +52,7 @@ extension ViewController {
         
         // Optional
         calendarWeekView.addNewDurationMins = 120
-        calendarWeekView.moveTimeMinInterval = 15
+        calendarWeekView.moveTimeMinInterval = 15                
     }
     
     /// For example only
@@ -75,11 +75,6 @@ extension ViewController: JZBaseViewDelegate {
 }
 
 extension ViewController {
-    
-    func setupBasic() {
-        // Add this to fix lower than iOS11 problems
-        self.automaticallyAdjustsScrollViewInsets = false
-    }
     
     private func setupNaviBar() {
         updateNaviBarTitle()

@@ -47,5 +47,11 @@ class DefaultWeekView: JZLongPressWeekView {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedEvent = getCurrentEvent(with: indexPath) as! AllDayEvent
         ToastUtil.toastMessageInTheMiddle(message: selectedEvent.title)
+        selectedEvent.endDate = selectedEvent.endDate.add(component: .hour, value: 1)
+//
+//        self.collectionView.reloadItems(at: [indexPath])
+        
+//        let cell = self.collectionView.cellForItem(at: indexPath)
+//        self.collectionView.confi
     }
 }
