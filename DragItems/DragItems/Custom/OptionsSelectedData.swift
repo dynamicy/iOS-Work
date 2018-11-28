@@ -5,7 +5,7 @@
 //  Created by Chris on 2018/11/28.
 //
 
-import Foundation
+import UIKit
 import JZCalendarWeekView
 
 enum ViewType: String {

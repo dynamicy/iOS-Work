@@ -15,11 +15,12 @@
 		B96242AF21AE945C00511B39 /* DefaultWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242AE21AE945C00511B39 /* DefaultWeekView.swift */; };
 		B96242CC21AEA64F00511B39 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242CB21AEA64F00511B39 /* Extensions.swift */; };
 		B96242CE21AEA67200511B39 /* ToastUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242CD21AEA67200511B39 /* ToastUtil.swift */; };
-		B96242D021AEAA0500511B39 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96242CF21AEAA0500511B39 /* EventCell.xib */; };
-		B96242D221AEAA3F00511B39 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242D121AEAA3F00511B39 /* EventCell.swift */; };
 		B96242D421AEAAC100511B39 /* DefaultEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242D321AEAAC100511B39 /* DefaultEvent.swift */; };
 		B96242D621AEAB9500511B39 /* DefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242D521AEAB9500511B39 /* DefaultViewModel.swift */; };
-		B96242D821AEABD700511B39 /* OptionsSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242D721AEABD700511B39 /* OptionsSelectedData.swift */; };
+		B96242DB21AEC03200511B39 /* LongPressEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96242DA21AEC03200511B39 /* LongPressEventCell.xib */; };
+		B96242DD21AEC05C00511B39 /* LongPressEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242DC21AEC05C00511B39 /* LongPressEventCell.swift */; };
+		B96242DF21AEC0CF00511B39 /* AllDayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242DE21AEC0CF00511B39 /* AllDayEvent.swift */; };
+		B96242E221AEC1FC00511B39 /* OptionsSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242E121AEC1FC00511B39 /* OptionsSelectedData.swift */; };
 		C23CE1050C6AE30059032638 /* Pods_DragItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E27B3F9C58F8F3BBE4FA6BD /* Pods_DragItems.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,11 +37,12 @@
 		B96242AE21AE945C00511B39 /* DefaultWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWeekView.swift; sourceTree = "<group>"; };
 		B96242CB21AEA64F00511B39 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B96242CD21AEA67200511B39 /* ToastUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastUtil.swift; sourceTree = "<group>"; };
-		B96242CF21AEAA0500511B39 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
-		B96242D121AEAA3F00511B39 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		B96242D321AEAAC100511B39 /* DefaultEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEvent.swift; sourceTree = "<group>"; };
 		B96242D521AEAB9500511B39 /* DefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewModel.swift; sourceTree = "<group>"; };
-		B96242D721AEABD700511B39 /* OptionsSelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsSelectedData.swift; sourceTree = "<group>"; };
+		B96242DA21AEC03200511B39 /* LongPressEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LongPressEventCell.xib; sourceTree = "<group>"; };
+		B96242DC21AEC05C00511B39 /* LongPressEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressEventCell.swift; sourceTree = "<group>"; };
+		B96242DE21AEC0CF00511B39 /* AllDayEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDayEvent.swift; sourceTree = "<group>"; };
+		B96242E121AEC1FC00511B39 /* OptionsSelectedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsSelectedData.swift; sourceTree = "<group>"; };
 		EC2D0F5963D7DFDDC87DC3E6 /* Pods-DragItems.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DragItems.release.xcconfig"; path = "Pods/Target Support Files/Pods-DragItems/Pods-DragItems.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,11 +87,10 @@
 		B962429721AE6E5600511B39 /* DragItems */ = {
 			isa = PBXGroup;
 			children = (
+				B96242E021AEC1BE00511B39 /* Application */,
 				B96242CA21AEA63C00511B39 /* Utils */,
 				B96242AD21AE944C00511B39 /* Custom */,
-				B962429821AE6E5600511B39 /* AppDelegate.swift */,
 				B96242D521AEAB9500511B39 /* DefaultViewModel.swift */,
-				B96242D721AEABD700511B39 /* OptionsSelectedData.swift */,
 				B962429A21AE6E5600511B39 /* ViewController.swift */,
 				B962429C21AE6E5600511B39 /* Main.storyboard */,
 				B962429F21AE6E5700511B39 /* Assets.xcassets */,
@@ -103,9 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				B96242AE21AE945C00511B39 /* DefaultWeekView.swift */,
-				B96242CF21AEAA0500511B39 /* EventCell.xib */,
-				B96242D121AEAA3F00511B39 /* EventCell.swift */,
 				B96242D321AEAAC100511B39 /* DefaultEvent.swift */,
+				B96242DA21AEC03200511B39 /* LongPressEventCell.xib */,
+				B96242DC21AEC05C00511B39 /* LongPressEventCell.swift */,
+				B96242DE21AEC0CF00511B39 /* AllDayEvent.swift */,
+				B96242E121AEC1FC00511B39 /* OptionsSelectedData.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -117,6 +120,14 @@
 				B96242CD21AEA67200511B39 /* ToastUtil.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B96242E021AEC1BE00511B39 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B962429821AE6E5600511B39 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		BD58C07C16D8EE8CE68F67B6 /* Pods */ = {
@@ -187,7 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B96242D021AEAA0500511B39 /* EventCell.xib in Resources */,
+				B96242DB21AEC03200511B39 /* LongPressEventCell.xib in Resources */,
 				B96242A321AE6E5700511B39 /* LaunchScreen.storyboard in Resources */,
 				B96242A021AE6E5700511B39 /* Assets.xcassets in Resources */,
 				B962429E21AE6E5600511B39 /* Main.storyboard in Resources */,
@@ -254,11 +265,12 @@
 			files = (
 				B962429B21AE6E5600511B39 /* ViewController.swift in Sources */,
 				B96242AF21AE945C00511B39 /* DefaultWeekView.swift in Sources */,
-				B96242D821AEABD700511B39 /* OptionsSelectedData.swift in Sources */,
+				B96242DD21AEC05C00511B39 /* LongPressEventCell.swift in Sources */,
+				B96242DF21AEC0CF00511B39 /* AllDayEvent.swift in Sources */,
 				B96242D621AEAB9500511B39 /* DefaultViewModel.swift in Sources */,
 				B96242CE21AEA67200511B39 /* ToastUtil.swift in Sources */,
 				B962429921AE6E5600511B39 /* AppDelegate.swift in Sources */,
-				B96242D221AEAA3F00511B39 /* EventCell.swift in Sources */,
+				B96242E221AEC1FC00511B39 /* OptionsSelectedData.swift in Sources */,
 				B96242CC21AEA64F00511B39 /* Extensions.swift in Sources */,
 				B96242D421AEAAC100511B39 /* DefaultEvent.swift in Sources */,
 			);
