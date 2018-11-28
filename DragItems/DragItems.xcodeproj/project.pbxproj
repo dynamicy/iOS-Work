@@ -13,6 +13,8 @@
 		B96242A021AE6E5700511B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B962429F21AE6E5700511B39 /* Assets.xcassets */; };
 		B96242A321AE6E5700511B39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96242A121AE6E5700511B39 /* LaunchScreen.storyboard */; };
 		B96242AF21AE945C00511B39 /* DefaultWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242AE21AE945C00511B39 /* DefaultWeekView.swift */; };
+		B96242CC21AEA64F00511B39 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242CB21AEA64F00511B39 /* Extensions.swift */; };
+		B96242CE21AEA67200511B39 /* ToastUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96242CD21AEA67200511B39 /* ToastUtil.swift */; };
 		C23CE1050C6AE30059032638 /* Pods_DragItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E27B3F9C58F8F3BBE4FA6BD /* Pods_DragItems.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		B96242A221AE6E5700511B39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B96242A421AE6E5700511B39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B96242AE21AE945C00511B39 /* DefaultWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWeekView.swift; sourceTree = "<group>"; };
+		B96242CB21AEA64F00511B39 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B96242CD21AEA67200511B39 /* ToastUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastUtil.swift; sourceTree = "<group>"; };
 		EC2D0F5963D7DFDDC87DC3E6 /* Pods-DragItems.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DragItems.release.xcconfig"; path = "Pods/Target Support Files/Pods-DragItems/Pods-DragItems.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +75,7 @@
 		B962429721AE6E5600511B39 /* DragItems */ = {
 			isa = PBXGroup;
 			children = (
+				B96242CA21AEA63C00511B39 /* Utils */,
 				B96242AD21AE944C00511B39 /* Custom */,
 				B962429821AE6E5600511B39 /* AppDelegate.swift */,
 				B962429A21AE6E5600511B39 /* ViewController.swift */,
@@ -88,6 +93,15 @@
 				B96242AE21AE945C00511B39 /* DefaultWeekView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		B96242CA21AEA63C00511B39 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B96242CB21AEA64F00511B39 /* Extensions.swift */,
+				B96242CD21AEA67200511B39 /* ToastUtil.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		BD58C07C16D8EE8CE68F67B6 /* Pods */ = {
@@ -224,7 +238,9 @@
 			files = (
 				B962429B21AE6E5600511B39 /* ViewController.swift in Sources */,
 				B96242AF21AE945C00511B39 /* DefaultWeekView.swift in Sources */,
+				B96242CE21AEA67200511B39 /* ToastUtil.swift in Sources */,
 				B962429921AE6E5600511B39 /* AppDelegate.swift in Sources */,
+				B96242CC21AEA64F00511B39 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
