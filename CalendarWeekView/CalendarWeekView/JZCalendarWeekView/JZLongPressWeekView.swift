@@ -148,6 +148,10 @@ open class JZLongPressWeekView: JZBaseWeekView {
     private func setupGestures() {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPressGesture(_:)))
         longPressGesture.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestureClick(_:)))
+        collectionView.addGestureRecognizer(tap)
+        
         collectionView.addGestureRecognizer(longPressGesture)
     }
     
@@ -372,10 +376,18 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         return true
     }
     
+    @objc func tapGestureClick(_ sender: UITapGestureRecognizer) {
+        print("tap")
+        print("tap")
+    }
+    
     /// The basic longPressView position logic is moving with your finger's original position.
     /// - The Move type longPressView will keep the relative position during this longPress, that's how Apple Calendar did.
     /// - The AddNew type longPressView will be created centrally at your finger press position
     @objc private func handleLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        print("long tap")
+        print("long tap")
         
         let pointInSelfView = gestureRecognizer.location(in: self)
         /// Used for get startDate of longPressView

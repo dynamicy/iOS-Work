@@ -19,8 +19,8 @@ class DefaultWeekView: JZLongPressWeekView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LongPressEventCell.className, for: indexPath) as! LongPressEventCell
         
         let selectedEvent = getCurrentEvent(with: indexPath) as! AllDayEvent
-        selectedEvent.title = "frjkgljrlkg"
-        selectedEvent.endDate = selectedEvent.endDate.add(component: .hour, value: 1)
+//        selectedEvent.title = "frjkgljrlkg"
+//        selectedEvent.endDate = selectedEvent.endDate.add(component: .hour, value: 1)
         
         cell.configureCell(event: selectedEvent)
         return cell
@@ -53,11 +53,12 @@ class DefaultWeekView: JZLongPressWeekView {
         ToastUtil.toastMessageInTheMiddle(message: selectedEvent.title)
         selectedEvent.title = "frjkgljrlkg"
         selectedEvent.endDate = selectedEvent.endDate.add(component: .hour, value: 1)
-//
+
+        var temp = self
 //        self.collectionView.reloadItems(at: [indexPath])
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LongPressEventCell.className, for: indexPath) as! LongPressEventCell
-        cell.configureCell(event: getCurrentEvent(with: indexPath) as! AllDayEvent)
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LongPressEventCell.className, for: indexPath) as! LongPressEventCell
+//        cell.configureCell(event: getCurrentEvent(with: indexPath) as! AllDayEvent)
         
         self.collectionView.reloadData()
     }
