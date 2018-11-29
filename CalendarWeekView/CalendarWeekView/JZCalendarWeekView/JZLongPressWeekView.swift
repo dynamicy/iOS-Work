@@ -9,7 +9,8 @@
 import UIKit
 
 public protocol TapGestureDelegate: class {
-    func tap()
+        
+    func tap(_ weekView: JZLongPressWeekView, editingEvent: JZBaseEvent, didEndMoveLongPressAt startDate: Date)
 }
 
 public protocol JZLongPressViewDelegate: class {
@@ -104,6 +105,7 @@ open class JZLongPressWeekView: JZBaseWeekView {
     /// Get this value when long press began and save the current relative X and Y value until it ended or cancelled
     private var pressPosition: (xToViewLeft: CGFloat, yToViewTop: CGFloat)?
     
+    // Long press
     public weak var longPressDelegate: JZLongPressViewDelegate?
     public weak var longPressDataSource: JZLongPressViewDataSource?
     
@@ -149,6 +151,7 @@ open class JZLongPressWeekView: JZBaseWeekView {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         setupGestures()
     }
     
@@ -156,7 +159,8 @@ open class JZLongPressWeekView: JZBaseWeekView {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPressGesture(_:)))
         longPressGesture.delegate = self
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureClick(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action:
+            #selector(handleTapGesture(_:)))
         tapGesture.delegate = self
         
         collectionView.addGestureRecognizer(tapGesture)
@@ -245,7 +249,6 @@ open class JZLongPressWeekView: JZBaseWeekView {
         // must set initial contentoffset because willBeginDragging will not be called
         initialContentOffset = collectionView.contentOffset
     }
-    
     
     /// Calculate the expected start date with timeMinInterval
     func getLongPressStartDate(date: Date, dateInSection: Date, timeMinInterval: Int) -> Date {
@@ -384,10 +387,25 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         return true
     }
     
-    @objc private func tapGestureClick(_ sender: UITapGestureRecognizer) {
+    @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
         print("tap")
         
-        self.tapGestureDelegate?.tap()
+        let pointInSelfView = gestureRecognizer.location(in: self)
+        /// Used for get startDate of longPressView
+        let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+        
+        var currentMovingCell: UICollectionViewCell!
+        
+        if let indexPath = collectionView.indexPathForItem(at: pointInCollectionView) {
+            currentMovingCell = collectionView.cellForItem(at: indexPath)
+        }
+        
+        currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
+        
+        // The startDate of the longPressView (the date of top Y in longPressView)
+        let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
+        
+        tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
     }
     
     /// The basic longPressView position logic is moving with your finger's original position.
@@ -497,4 +515,15 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         return longPressViewStartDate
     }
     
+    /// used by handleLongPressGesture only
+    private func getTapStartDate(pointInCollectionView: CGPoint, pointInSelfView: CGPoint) -> Date {
+        
+        let temp = CGSize(width: flowLayout.sectionWidth, height: flowLayout.hourHeight * CGFloat(addNewDurationMins)/60)
+        
+        let pressPosition: (xToViewLeft: CGFloat, yToViewTop: CGFloat)? = (temp.width/2, temp.height/2)
+        
+        let longPressViewTopDate = getDateForPoint(pointCollectionView: CGPoint(x: pointInCollectionView.x, y: pointInCollectionView.y - pressPosition!.yToViewTop) , pointSelfView: pointInSelfView)
+        let longPressViewStartDate = getLongPressStartDate(date: longPressViewTopDate, dateInSection: getDateForX(xCollectionView: pointInCollectionView.x, xSelfView: pointInSelfView.x), timeMinInterval: moveTimeMinInterval)
+        return longPressViewStartDate
+    }
 }

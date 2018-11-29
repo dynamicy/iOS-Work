@@ -160,7 +160,14 @@ extension ViewController: JZLongPressViewDelegate, JZLongPressViewDataSource {
 
 extension ViewController: TapGestureDelegate {
     
-    func tap() {
-        print("tapAAAABBBBCCCC")
+    func tap(_ weekView: JZLongPressWeekView, editingEvent: JZBaseEvent, didEndMoveLongPressAt startDate: Date) {
+        let event = editingEvent as! AllDayEvent
+        let duration = Calendar.current.dateComponents([.minute], from: event.startDate, to: event.endDate).minute!
+        let selectedIndex = viewModel.events.index(where: { $0.id == event.id })!
+        viewModel.events[selectedIndex].startDate = startDate
+        viewModel.events[selectedIndex].endDate = startDate.add(component: .minute, value: duration).add(component: .hour, value: 1)
+        
+        viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
+        weekView.forceReload(reloadEvents: viewModel.eventsByDate)
     }
 }

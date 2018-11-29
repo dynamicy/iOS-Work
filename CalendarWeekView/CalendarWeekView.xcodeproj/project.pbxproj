@@ -42,7 +42,6 @@
 		B9D7A6E121AF9475007CBBC1 /* LongPressEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */; };
 		B9D7A6E221AF9475007CBBC1 /* OptionsSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */; };
 		B9D7A6E421AF94B0007CBBC1 /* DefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6E321AF94B0007CBBC1 /* DefaultViewModel.swift */; };
-		B9D7A6E621AFBFCB007CBBC1 /* TapGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6E521AFBFCB007CBBC1 /* TapGestureDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +83,6 @@
 		B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LongPressEventCell.xib; path = ../../../DragItems/DragItems/Custom/LongPressEventCell.xib; sourceTree = "<group>"; };
 		B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsSelectedData.swift; path = ../../../DragItems/DragItems/Custom/OptionsSelectedData.swift; sourceTree = "<group>"; };
 		B9D7A6E321AF94B0007CBBC1 /* DefaultViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultViewModel.swift; path = ../../DragItems/DragItems/DefaultViewModel.swift; sourceTree = "<group>"; };
-		B9D7A6E521AFBFCB007CBBC1 /* TapGestureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +184,6 @@
 				B9D7A6D921AF9475007CBBC1 /* LongPressEventCell.swift */,
 				B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */,
 				B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */,
-				B9D7A6E521AFBFCB007CBBC1 /* TapGestureDelegate.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -280,7 +277,6 @@
 				B9D7A6E421AF94B0007CBBC1 /* DefaultViewModel.swift in Sources */,
 				B9D7A6B421AF9192007CBBC1 /* JZAllDayHeader.swift in Sources */,
 				B9D7A6B521AF9192007CBBC1 /* JZAllDayCorner.swift in Sources */,
-				B9D7A6E621AFBFCB007CBBC1 /* TapGestureDelegate.swift in Sources */,
 				B9D7A6E221AF9475007CBBC1 /* OptionsSelectedData.swift in Sources */,
 				B9D7A6D121AF91BE007CBBC1 /* JZWeekViewFlowLayout.swift in Sources */,
 				B9D7A6DE21AF9475007CBBC1 /* DefaultWeekView.swift in Sources */,
