@@ -5,6 +5,8 @@
 //  Created by Chris on 2018/11/28.
 //
 
+import UIKit
+
 class AllDayEvent: JZAllDayEvent {
     
     var location: String

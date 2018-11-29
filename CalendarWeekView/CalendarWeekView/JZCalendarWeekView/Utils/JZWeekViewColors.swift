@@ -22,7 +22,6 @@ class JZWeekViewColors {
     class var appleCalendarRed: UIColor { return UIColor(hex: 0xFC3D39) }
 }
 
-
 extension UIColor {
     
     fileprivate convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {

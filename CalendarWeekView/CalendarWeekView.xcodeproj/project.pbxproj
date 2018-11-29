@@ -34,6 +34,14 @@
 		B9D7A6D021AF91BE007CBBC1 /* JZBaseWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6C821AF91BE007CBBC1 /* JZBaseWeekView.swift */; };
 		B9D7A6D121AF91BE007CBBC1 /* JZWeekViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6C921AF91BE007CBBC1 /* JZWeekViewFlowLayout.swift */; };
 		B9D7A6D221AF91BE007CBBC1 /* JZWeekViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6CA21AF91BE007CBBC1 /* JZWeekViewHelper.swift */; };
+		B9D7A6D521AF9335007CBBC1 /* ToastUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6D421AF9335007CBBC1 /* ToastUtil.swift */; };
+		B9D7A6DD21AF9475007CBBC1 /* DefaultEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6D721AF9475007CBBC1 /* DefaultEvent.swift */; };
+		B9D7A6DE21AF9475007CBBC1 /* DefaultWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6D821AF9475007CBBC1 /* DefaultWeekView.swift */; };
+		B9D7A6DF21AF9475007CBBC1 /* LongPressEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6D921AF9475007CBBC1 /* LongPressEventCell.swift */; };
+		B9D7A6E021AF9475007CBBC1 /* AllDayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6DA21AF9475007CBBC1 /* AllDayEvent.swift */; };
+		B9D7A6E121AF9475007CBBC1 /* LongPressEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */; };
+		B9D7A6E221AF9475007CBBC1 /* OptionsSelectedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */; };
+		B9D7A6E421AF94B0007CBBC1 /* DefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A6E321AF94B0007CBBC1 /* DefaultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +75,14 @@
 		B9D7A6C821AF91BE007CBBC1 /* JZBaseWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JZBaseWeekView.swift; sourceTree = "<group>"; };
 		B9D7A6C921AF91BE007CBBC1 /* JZWeekViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JZWeekViewFlowLayout.swift; sourceTree = "<group>"; };
 		B9D7A6CA21AF91BE007CBBC1 /* JZWeekViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JZWeekViewHelper.swift; sourceTree = "<group>"; };
+		B9D7A6D421AF9335007CBBC1 /* ToastUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastUtil.swift; path = ../../../../DragItems/DragItems/Utils/ToastUtil.swift; sourceTree = "<group>"; };
+		B9D7A6D721AF9475007CBBC1 /* DefaultEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultEvent.swift; path = ../../../DragItems/DragItems/Custom/DefaultEvent.swift; sourceTree = "<group>"; };
+		B9D7A6D821AF9475007CBBC1 /* DefaultWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultWeekView.swift; path = ../../../DragItems/DragItems/Custom/DefaultWeekView.swift; sourceTree = "<group>"; };
+		B9D7A6D921AF9475007CBBC1 /* LongPressEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressEventCell.swift; path = ../../../DragItems/DragItems/Custom/LongPressEventCell.swift; sourceTree = "<group>"; };
+		B9D7A6DA21AF9475007CBBC1 /* AllDayEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllDayEvent.swift; path = ../../../DragItems/DragItems/Custom/AllDayEvent.swift; sourceTree = "<group>"; };
+		B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LongPressEventCell.xib; path = ../../../DragItems/DragItems/Custom/LongPressEventCell.xib; sourceTree = "<group>"; };
+		B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsSelectedData.swift; path = ../../../DragItems/DragItems/Custom/OptionsSelectedData.swift; sourceTree = "<group>"; };
+		B9D7A6E321AF94B0007CBBC1 /* DefaultViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultViewModel.swift; path = ../../DragItems/DragItems/DefaultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +115,10 @@
 		B9D7A69021AF9136007CBBC1 /* CalendarWeekView */ = {
 			isa = PBXGroup;
 			children = (
+				B9D7A6D621AF9445007CBBC1 /* Custom */,
 				B9D7A6A321AF9164007CBBC1 /* JZCalendarWeekView */,
 				B9D7A69121AF9136007CBBC1 /* AppDelegate.swift */,
+				B9D7A6E321AF94B0007CBBC1 /* DefaultViewModel.swift */,
 				B9D7A69321AF9136007CBBC1 /* ViewController.swift */,
 				B9D7A69521AF9136007CBBC1 /* Main.storyboard */,
 				B9D7A69821AF9137007CBBC1 /* Assets.xcassets */,
@@ -149,11 +167,25 @@
 		B9D7A6A521AF9180007CBBC1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B9D7A6D421AF9335007CBBC1 /* ToastUtil.swift */,
 				B9D7A6BC21AF91AB007CBBC1 /* Extensions.swift */,
 				B9D7A6BD21AF91AB007CBBC1 /* JZWeekViewColors.swift */,
 				B9D7A6BE21AF91AB007CBBC1 /* WeakTimer.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B9D7A6D621AF9445007CBBC1 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B9D7A6DA21AF9475007CBBC1 /* AllDayEvent.swift */,
+				B9D7A6D721AF9475007CBBC1 /* DefaultEvent.swift */,
+				B9D7A6D821AF9475007CBBC1 /* DefaultWeekView.swift */,
+				B9D7A6D921AF9475007CBBC1 /* LongPressEventCell.swift */,
+				B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */,
+				B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +247,7 @@
 			files = (
 				B9D7A69C21AF9137007CBBC1 /* LaunchScreen.storyboard in Resources */,
 				B9D7A69921AF9137007CBBC1 /* Assets.xcassets in Resources */,
+				B9D7A6E121AF9475007CBBC1 /* LongPressEventCell.xib in Resources */,
 				B9D7A69721AF9136007CBBC1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,20 +264,27 @@
 				B9D7A6BA21AF9192007CBBC1 /* JZAllDayHeaderBackground.swift in Sources */,
 				B9D7A6B621AF9192007CBBC1 /* JZRowHeader.swift in Sources */,
 				B9D7A6D221AF91BE007CBBC1 /* JZWeekViewHelper.swift in Sources */,
+				B9D7A6E021AF9475007CBBC1 /* AllDayEvent.swift in Sources */,
 				B9D7A6CD21AF91BE007CBBC1 /* JZAllDayEvent.swift in Sources */,
+				B9D7A6DF21AF9475007CBBC1 /* LongPressEventCell.swift in Sources */,
 				B9D7A6D021AF91BE007CBBC1 /* JZBaseWeekView.swift in Sources */,
 				B9D7A6C121AF91AB007CBBC1 /* WeakTimer.swift in Sources */,
 				B9D7A6B121AF9192007CBBC1 /* JZCurrentTimelinePage.swift in Sources */,
 				B9D7A6B821AF9192007CBBC1 /* JZRowHeaderBackground.swift in Sources */,
 				B9D7A69421AF9136007CBBC1 /* ViewController.swift in Sources */,
 				B9D7A6CE21AF91BE007CBBC1 /* JZBaseEvent.swift in Sources */,
+				B9D7A6D521AF9335007CBBC1 /* ToastUtil.swift in Sources */,
+				B9D7A6E421AF94B0007CBBC1 /* DefaultViewModel.swift in Sources */,
 				B9D7A6B421AF9192007CBBC1 /* JZAllDayHeader.swift in Sources */,
 				B9D7A6B521AF9192007CBBC1 /* JZAllDayCorner.swift in Sources */,
+				B9D7A6E221AF9475007CBBC1 /* OptionsSelectedData.swift in Sources */,
 				B9D7A6D121AF91BE007CBBC1 /* JZWeekViewFlowLayout.swift in Sources */,
+				B9D7A6DE21AF9475007CBBC1 /* DefaultWeekView.swift in Sources */,
 				B9D7A6CC21AF91BE007CBBC1 /* JZLongPressWeekView.swift in Sources */,
 				B9D7A6CF21AF91BE007CBBC1 /* JZLongPressEventCell.swift in Sources */,
 				B9D7A6BB21AF9192007CBBC1 /* JZGridLine.swift in Sources */,
 				B9D7A6B721AF9192007CBBC1 /* JZCurrentTimelineSection.swift in Sources */,
+				B9D7A6DD21AF9475007CBBC1 /* DefaultEvent.swift in Sources */,
 				B9D7A6C021AF91AB007CBBC1 /* JZWeekViewColors.swift in Sources */,
 				B9D7A6B921AF9192007CBBC1 /* JZCornerHeader.swift in Sources */,
 				B9D7A6B221AF9192007CBBC1 /* JZColumnHeader.swift in Sources */,
