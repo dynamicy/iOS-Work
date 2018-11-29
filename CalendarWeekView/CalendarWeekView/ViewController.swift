@@ -46,6 +46,7 @@ extension ViewController {
         
         // LongPress delegate, datasorce and type setup
         calendarWeekView.longPressDelegate = self
+        calendarWeekView.tapGestureDelegate = self
         calendarWeekView.longPressDataSource = self
         calendarWeekView.longPressTypes = [.addNew, .move]
         
@@ -154,5 +155,12 @@ extension ViewController: JZLongPressViewDelegate, JZLongPressViewDataSource {
         let view = UINib(nibName: LongPressEventCell.className, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! LongPressEventCell
         view.titleLabel.text = "New Event"
         return view
+    }
+}
+
+extension ViewController: TapGestureDelegate {
+    
+    func tap() {
+        print("tapAAAABBBBCCCC")
     }
 }

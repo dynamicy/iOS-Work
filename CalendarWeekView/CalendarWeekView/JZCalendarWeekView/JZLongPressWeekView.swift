@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol TapGestureDelegate: class {
+    func tap()
+}
+
 public protocol JZLongPressViewDelegate: class {
     
     /// When addNew long press gesture ends, this function will be called.
@@ -103,6 +107,9 @@ open class JZLongPressWeekView: JZBaseWeekView {
     public weak var longPressDelegate: JZLongPressViewDelegate?
     public weak var longPressDataSource: JZLongPressViewDataSource?
     
+    // Tap
+    public weak var tapGestureDelegate: TapGestureDelegate?
+    
     // You can modify these properties below
     public var longPressTypes: [LongPressType] = [LongPressType]()
     /// It is used to identify the minimum time interval(Minute) when dragging the event view (minimum value is 1, maximum is 60)
@@ -149,9 +156,10 @@ open class JZLongPressWeekView: JZBaseWeekView {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPressGesture(_:)))
         longPressGesture.delegate = self
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestureClick(_:)))
-        collectionView.addGestureRecognizer(tap)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureClick(_:)))
+        tapGesture.delegate = self
         
+        collectionView.addGestureRecognizer(tapGesture)
         collectionView.addGestureRecognizer(longPressGesture)
     }
     
@@ -376,9 +384,10 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         return true
     }
     
-    @objc func tapGestureClick(_ sender: UITapGestureRecognizer) {
+    @objc private func tapGestureClick(_ sender: UITapGestureRecognizer) {
         print("tap")
-        print("tap")
+        
+        self.tapGestureDelegate?.tap()
     }
     
     /// The basic longPressView position logic is moving with your finger's original position.
@@ -386,7 +395,6 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
     /// - The AddNew type longPressView will be created centrally at your finger press position
     @objc private func handleLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
         
-        print("long tap")
         print("long tap")
         
         let pointInSelfView = gestureRecognizer.location(in: self)
