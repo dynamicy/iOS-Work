@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import JZCalendarWeekView
 
 class DefaultWeekView: JZLongPressWeekView {
     

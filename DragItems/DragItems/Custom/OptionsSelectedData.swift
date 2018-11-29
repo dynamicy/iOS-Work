@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import JZCalendarWeekView
 
 enum ViewType: String {
     case defaultView = "Default JZBaseWeekView"

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JZCalendarWeekView
 
 class DefaultEvent: JZBaseEvent {
     

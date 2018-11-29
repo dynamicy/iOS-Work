@@ -5,8 +5,6 @@
 //  Created by Chris on 2018/11/28.
 //
 
-import JZCalendarWeekView
-
 class AllDayEvent: JZAllDayEvent {
     
     var location: String
