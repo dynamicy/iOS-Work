@@ -402,6 +402,32 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
     
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("pan")
+        
+        
+        
+        if gestureRecognizer.state == .began {
+            let x = self.frame.origin.x
+            let y = self.frame.origin.y
+            print("pan began: \(x) : \(y)")
+        } else if gestureRecognizer.state == .changed {
+            
+//            let x = self.frame.origin.x
+//            let y = self.frame.origin.y
+            
+            let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+            
+            let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
+            
+            var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
+            
+            let y = gestureRecognizer.translation(in: currentMovingCell).y
+            print("pan changed: \(y)")
+        } else if gestureRecognizer.state == .ended {
+            let x = self.frame.origin.x
+            let y = self.frame.origin.y
+            print("pan ended: \(x) : \(y)")
+        }
+        
     }
     
     @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
