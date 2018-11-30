@@ -13,6 +13,11 @@ public protocol TapGestureDelegate: class {
     func tap(_ weekView: JZLongPressWeekView, editingEvent: JZBaseEvent, didEndMoveLongPressAt startDate: Date)
 }
 
+public protocol PanGestureDelegate: class {
+    
+    func pan()
+}
+
 public protocol JZLongPressViewDelegate: class {
     
     /// When addNew long press gesture ends, this function will be called.
@@ -112,6 +117,9 @@ open class JZLongPressWeekView: JZBaseWeekView {
     // Tap
     public weak var tapGestureDelegate: TapGestureDelegate?
     
+    // Pan
+    public weak var panGestureDelegate: PanGestureDelegate?
+    
     // You can modify these properties below
     public var longPressTypes: [LongPressType] = [LongPressType]()
     /// It is used to identify the minimum time interval(Minute) when dragging the event view (minimum value is 1, maximum is 60)
@@ -163,8 +171,13 @@ open class JZLongPressWeekView: JZBaseWeekView {
             #selector(handleTapGesture(_:)))
         tapGesture.delegate = self
         
+        let panGesture = UIPanGestureRecognizer(target: self, action:
+            #selector(handlePanGesture(_:)))
+        panGesture.delegate = self
+        
         collectionView.addGestureRecognizer(tapGesture)
         collectionView.addGestureRecognizer(longPressGesture)
+        collectionView.addGestureRecognizer(panGesture)
     }
     
     /// Updating time label in longPressView during dragging
@@ -385,6 +398,10 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         }
         
         return true
+    }
+    
+    @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+        print("pan")
     }
     
     @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
