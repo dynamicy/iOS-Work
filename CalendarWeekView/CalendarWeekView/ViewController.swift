@@ -165,7 +165,8 @@ extension ViewController: TapGestureDelegate {
         let duration = Calendar.current.dateComponents([.minute], from: event.startDate, to: event.endDate).minute!
         let selectedIndex = viewModel.events.index(where: { $0.id == event.id })!
         viewModel.events[selectedIndex].startDate = startDate
-        viewModel.events[selectedIndex].endDate = startDate.add(component: .minute, value: duration).add(component: .hour, value: 1)
+//        viewModel.events[selectedIndex].endDate = startDate.add(component: .minute, value: duration).add(component: .hour, value: 1)
+        viewModel.events[selectedIndex].endDate = startDate.add(component: .minute, value: duration)
         
         viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
         weekView.forceReload(reloadEvents: viewModel.eventsByDate)

@@ -403,7 +403,7 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("pan")
         
-        
+        let point = gestureRecognizer.location(in: self)
         
         if gestureRecognizer.state == .began {
             let x = self.frame.origin.x
@@ -418,14 +418,36 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
             
             let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
             
-            var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
-            
-            let y = gestureRecognizer.translation(in: currentMovingCell).y
-            print("pan changed: \(y)")
+            if indexPath != nil {
+                var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
+                
+                let y = gestureRecognizer.translation(in: currentMovingCell).y
+                print("pan changed: \(y)")
+            }
         } else if gestureRecognizer.state == .ended {
-            let x = self.frame.origin.x
-            let y = self.frame.origin.y
-            print("pan ended: \(x) : \(y)")
+            
+            let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+            
+            let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
+            
+            if indexPath != nil {
+                var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
+                let y = gestureRecognizer.translation(in: currentMovingCell).y
+                
+                //                let width = (self.view.frame.size.width - 12 * 3) / 3 //some width
+                //                let height = width * 1.5 //ratio
+                
+                currentMovingCell.frame.size.height += y
+                print("pan changed: \(y)")
+            }
+            
+            
+            
+//            let x = self.frame.origin.x
+//            let y = self.frame.origin.y
+////            new_currentRect.size.width -= point.x
+//
+//            print("pan ended: \(x) : \(y)")
         }
         
     }
@@ -441,14 +463,14 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         
         if let indexPath = collectionView.indexPathForItem(at: pointInCollectionView) {
             currentMovingCell = collectionView.cellForItem(at: indexPath)
-        }
-        
-        currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
-        
-        // The startDate of the longPressView (the date of top Y in longPressView)
-        let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
-        
-        tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
+            
+            currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
+            
+            // The startDate of the longPressView (the date of top Y in longPressView)
+            let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
+            
+            tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
+        }                
     }
     
     /// The basic longPressView position logic is moving with your finger's original position.
