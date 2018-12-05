@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9BE008C21B7BA4C00A13A5F /* PanningMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BE008B21B7BA4C00A13A5F /* PanningMode.swift */; };
 		B9D7A69221AF9136007CBBC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A69121AF9136007CBBC1 /* AppDelegate.swift */; };
 		B9D7A69421AF9136007CBBC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7A69321AF9136007CBBC1 /* ViewController.swift */; };
 		B9D7A69721AF9136007CBBC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D7A69521AF9136007CBBC1 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B9BE008B21B7BA4C00A13A5F /* PanningMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanningMode.swift; sourceTree = "<group>"; };
 		B9D7A68E21AF9136007CBBC1 /* CalendarWeekView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarWeekView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D7A69121AF9136007CBBC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9D7A69321AF9136007CBBC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				B9D7A6D921AF9475007CBBC1 /* LongPressEventCell.swift */,
 				B9D7A6DB21AF9475007CBBC1 /* LongPressEventCell.xib */,
 				B9D7A6DC21AF9475007CBBC1 /* OptionsSelectedData.swift */,
+				B9BE008B21B7BA4C00A13A5F /* PanningMode.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				B9D7A6DD21AF9475007CBBC1 /* DefaultEvent.swift in Sources */,
 				B9D7A6C021AF91AB007CBBC1 /* JZWeekViewColors.swift in Sources */,
 				B9D7A6B921AF9192007CBBC1 /* JZCornerHeader.swift in Sources */,
+				B9BE008C21B7BA4C00A13A5F /* PanningMode.swift in Sources */,
 				B9D7A6B221AF9192007CBBC1 /* JZColumnHeader.swift in Sources */,
 				B9D7A69221AF9136007CBBC1 /* AppDelegate.swift in Sources */,
 				B9D7A6BF21AF91AB007CBBC1 /* Extensions.swift in Sources */,

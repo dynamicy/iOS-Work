@@ -101,6 +101,9 @@ open class JZLongPressWeekView: JZBaseWeekView {
         /// Save current all changed opacity cell contentViews to change them back when end or cancel longPress, have to save them because of cell reusage
         var allOpacityContentViews = [UIView]()
     }
+    
+    private let RATE: CGFloat = 20
+    
     /// When moving the longPress view, if it causes the collectionView scrolling
     private var isScrolling: Bool = false
     private var isLongPressing: Bool = false
@@ -400,8 +403,78 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
         return true
     }
     
+    private func rightEdgeRect(currentRect: CGRect) -> CGRect {
+        if currentRect.width <= RATE*2 {
+            return CGRect(x: currentRect.maxX, y: currentRect.minY + RATE, width: RATE * 2, height: currentRect.height - RATE * 2)
+        }
+        return CGRect(x:currentRect.maxX - RATE, y: currentRect.minY + RATE, width: RATE*3, height: currentRect.height - RATE*2)
+    }
+    
+    private func topEdgeRect(currentRect: CGRect) -> CGRect {
+        if currentRect.height <= RATE*2 {
+            return CGRect(x: currentRect.minX + RATE*2, y: currentRect.minY - RATE*2, width: currentRect.width - RATE*4, height: RATE*2)
+        }
+        return CGRect(x: currentRect.minX + RATE*2, y: currentRect.minY - RATE*2, width: currentRect.width - RATE*4, height: RATE*3)
+    }
+    
+    private func bottomEdgeRect(currentRect: CGRect) -> CGRect {
+        if currentRect.height <= RATE*2 {
+            return CGRect(x: currentRect.minX + RATE*2, y: currentRect.maxY, width: currentRect.width - RATE*4, height: RATE*2)
+        }
+        return CGRect(x: currentRect.minX + RATE*2, y: currentRect.maxY - RATE , width: currentRect.width - RATE*4, height: RATE*3)
+    }
+    
+    private func leftEdgeRect(currentRect: CGRect) -> CGRect {
+        if currentRect.width <= RATE*2 {
+            return CGRect(x: currentRect.minX-RATE*2, y: currentRect.minY + RATE, width: RATE*2, height: currentRect.height-RATE*2)
+        }
+        return CGRect(x: currentRect.minX - RATE*2, y: currentRect.minY + RATE, width: RATE*3, height: currentRect.height - RATE*2)
+    }
+    
+    private func isInCenterContainsPoint(_ point: CGPoint, currentRect: CGRect) -> Bool {
+        return centerRect(currentRect: currentRect).contains(point)
+    }
+    
+    private func centerRect(currentRect: CGRect) -> CGRect {
+        return CGRect(x: leftEdgeRect(currentRect: currentRect).maxX , y: topEdgeRect(currentRect: currentRect).maxY, width: rightEdgeRect(currentRect: currentRect).minX-leftEdgeRect(currentRect: currentRect).maxX, height: bottomEdgeRect(currentRect: currentRect).minY-topEdgeRect(currentRect: currentRect).maxY)
+    }
+    
+    @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
+        print("tap")
+        
+        var currentRect: CGRect?
+        
+        let pointInSelfView = gestureRecognizer.location(in: self)
+        
+        /// Used for get startDate of longPressView
+        let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+        
+        var currentMovingCell: UICollectionViewCell!
+        
+        if let indexPath = collectionView.indexPathForItem(at: pointInCollectionView) {
+            currentMovingCell = collectionView.cellForItem(at: indexPath)
+            
+            currentRect = currentMovingCell.frame
+            
+            currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
+            
+            // The startDate of the longPressView (the date of top Y in longPressView)
+            let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
+            
+            tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
+            
+            if currentRect == CGRect.zero {
+                print("CGRect.zero")
+            } else {
+                print("isInCenterContainsPoint")
+            }
+        }
+    }
+    
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("pan")
+        
+        var currentRect: CGRect?
         
         let point = gestureRecognizer.location(in: self)
         
@@ -411,8 +484,8 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
             print("pan began: \(x) : \(y)")
         } else if gestureRecognizer.state == .changed {
             
-//            let x = self.frame.origin.x
-//            let y = self.frame.origin.y
+            //            let x = self.frame.origin.x
+            //            let y = self.frame.origin.y
             
             let pointInCollectionView = gestureRecognizer.location(in: collectionView)
             
@@ -422,7 +495,25 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
                 var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
                 
                 let y = gestureRecognizer.translation(in: currentMovingCell).y
-                print("pan changed: \(y)")
+                
+                currentRect = currentMovingCell.frame
+                
+                
+                if currentRect == CGRect.zero {
+                    print("CGRect.zero")
+                } else {
+                    currentMovingCell.frame.size.height += y
+                    
+                    if isInCenterContainsPoint(point, currentRect: currentRect!) {
+                        print("[11111111]isInCenterContainsPoint")
+                    } else if isCornerContainsPoint(point, currentRect: currentRect!) {
+                        //                        panningMode = getPannigModeByPoint(point)
+                        print("[22222222]isCornerContainsPoint")
+                    } else if isEdgeContainsPoint(point, currentRect: currentRect!) {
+                        //                        panningMode = getPannigModeByPoint(point)
+                        print("[33333333]isEdgeContainsPoint")
+                    }
+                }
             }
         } else if gestureRecognizer.state == .ended {
             
@@ -434,43 +525,63 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
                 var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
                 let y = gestureRecognizer.translation(in: currentMovingCell).y
                 
-                //                let width = (self.view.frame.size.width - 12 * 3) / 3 //some width
-                //                let height = width * 1.5 //ratio
+                currentRect = currentMovingCell.frame
                 
-                currentMovingCell.frame.size.height += y
+//                currentMovingCell.frame.size.height += y
                 print("pan changed: \(y)")
+                
+                if currentRect == CGRect.zero {
+                    print("CGRect.zero")
+                } else {
+                    if isInCenterContainsPoint(point, currentRect: currentRect!) {
+                        print("[11111111]isInCenterContainsPoint")
+                    } else if isCornerContainsPoint(point, currentRect: currentRect!) {
+//                        panningMode = getPannigModeByPoint(point)
+                        print("[22222222]isCornerContainsPoint")
+                    } else if isEdgeContainsPoint(point, currentRect: currentRect!) {
+//                        panningMode = getPannigModeByPoint(point)
+                        print("[33333333]isEdgeContainsPoint")
+                    }
+                }
             }
-            
-            
-            
-//            let x = self.frame.origin.x
-//            let y = self.frame.origin.y
-////            new_currentRect.size.width -= point.x
-//
-//            print("pan ended: \(x) : \(y)")
         }
         
     }
     
-    @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
-        print("tap")
-        
-        let pointInSelfView = gestureRecognizer.location(in: self)
-        /// Used for get startDate of longPressView
-        let pointInCollectionView = gestureRecognizer.location(in: collectionView)
-        
-        var currentMovingCell: UICollectionViewCell!
-        
-        if let indexPath = collectionView.indexPathForItem(at: pointInCollectionView) {
-            currentMovingCell = collectionView.cellForItem(at: indexPath)
-            
-            currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
-            
-            // The startDate of the longPressView (the date of top Y in longPressView)
-            let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
-            
-            tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
-        }                
+    private func topLeftCorner(currentRect: CGRect) -> CGRect {
+        if currentRect.width <= RATE * 4 {
+            return CGRect(x: currentRect.minX - RATE*2, y: currentRect.minY - RATE*3, width: currentRect.width*0.5+RATE*2, height: RATE*4)
+        }
+        return CGRect(x: currentRect.minX - RATE*2, y: currentRect.minY - RATE*3, width: RATE*4, height: RATE*4)
+    }
+    
+    private func topRightCorner(currentRect: CGRect) -> CGRect {
+        if currentRect.width <= RATE * 4 {
+            return CGRect(x: currentRect.maxX - currentRect.width*0.5, y: currentRect.minY - RATE*3, width: currentRect.width*0.5+RATE*2, height: RATE*4)
+        }
+        return CGRect(x: currentRect.maxX - RATE*2, y: currentRect.minY - RATE*3, width: RATE*4, height: RATE*4)
+    }
+    
+    private func bottomLeftCorner(currentRect: CGRect) -> CGRect {
+        if currentRect.width <= RATE * 4 {
+            return CGRect(x: currentRect.minX - RATE * 2, y: currentRect.maxY - RATE, width: RATE * 2 + currentRect.width * 0.5, height: RATE * 4)
+        }
+        return CGRect(x: currentRect.minX - RATE*2, y: currentRect.maxY - RATE, width: RATE*4, height: RATE*4)
+    }
+    
+    private func bottomRightCorner(currentRect: CGRect) -> CGRect {
+        if currentRect.width <= RATE * 4 {
+            return CGRect(x: currentRect.maxX - currentRect.width*0.5, y: currentRect.maxY - RATE, width: RATE * 4, height: RATE * 4)
+        }
+        return CGRect(x: currentRect.maxX - RATE*2, y: currentRect.maxY - RATE, width: RATE*4, height: RATE*4)
+    }
+    
+    private func isCornerContainsPoint(_ point: CGPoint, currentRect: CGRect) -> Bool {
+        return topLeftCorner(currentRect: currentRect).contains(point) || topRightCorner(currentRect: currentRect).contains(point) || bottomLeftCorner(currentRect: currentRect).contains(point) || bottomRightCorner(currentRect: currentRect).contains(point)
+    }
+    
+    private func isEdgeContainsPoint(_ point: CGPoint, currentRect: CGRect) -> Bool {
+        return topEdgeRect(currentRect: currentRect).contains(point) || bottomEdgeRect(currentRect: currentRect).contains(point) || leftEdgeRect(currentRect: currentRect).contains(point) || rightEdgeRect(currentRect: currentRect).contains(point)
     }
     
     /// The basic longPressView position logic is moving with your finger's original position.
