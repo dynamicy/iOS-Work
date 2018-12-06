@@ -15,12 +15,32 @@ class LongPressEventCell: JZLongPressEventCell {
     
     @IBOutlet weak var borderView: UIView!
     
+    @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var bottomView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setupBasic()
         
+        setGesture()
+        
         self.contentView.backgroundColor = UIColor(hex: 0xEEF7FF)
+    }
+    
+    func setGesture() {
+        let topViewLongPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleTopViewLongPressGesture(_:)))
+        topViewLongPressGesture.delegate = self
+        topView.addGestureRecognizer(topViewLongPressGesture)
+        
+        let bottomViewLongPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleBottomViewLongPressGesture(_:)))
+        bottomViewLongPressGesture.delegate = self
+        bottomView.addGestureRecognizer(bottomViewLongPressGesture)
+        
+        let mainViewLongPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleMainViewLongPressGesture(_:)))
+        mainViewLongPressGesture.delegate = self
+        self.addGestureRecognizer(mainViewLongPressGesture)
     }
     
     func setupBasic() {
@@ -42,6 +62,21 @@ class LongPressEventCell: JZLongPressEventCell {
         locationLabel.isHidden = isAllDay
     }
     
+}
+
+extension LongPressEventCell: UIGestureRecognizerDelegate {
+    
+    @objc private func handleTopViewLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        print("1111")
+    }
+    
+    @objc private func handleBottomViewLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        print("222222")
+    }
+    
+    @objc private func handleMainViewLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        print("33333")
+    }
 }
 
 extension UIColor {

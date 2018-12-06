@@ -154,6 +154,7 @@ extension ViewController: JZLongPressViewDelegate, JZLongPressViewDataSource {
     func weekView(_ weekView: JZLongPressWeekView, viewForAddNewLongPressAt startDate: Date) -> UIView {
         let view = UINib(nibName: LongPressEventCell.className, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! LongPressEventCell
         view.titleLabel.text = "New Event"
+//        view.delete(<#T##sender: Any?##Any?#>)
         return view
     }
 }

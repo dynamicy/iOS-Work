@@ -39,18 +39,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cf-sz-BCS" userLabel="Top View">
-                        <rect key="frame" x="0.0" y="0.0" width="227" height="10"/>
+                        <rect key="frame" x="0.0" y="0.0" width="227" height="37"/>
                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="w4A-1p-W7w"/>
-                        </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5r-Je-yQV" userLabel="Bottom View">
-                        <rect key="frame" x="-3" y="113" width="227" height="10"/>
+                        <rect key="frame" x="-3" y="86" width="227" height="37"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="V5z-Yv-oh5"/>
-                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -61,10 +55,12 @@
                 <constraint firstItem="3cf-sz-BCS" firstAttribute="leading" secondItem="XhZ-tk-Dz9" secondAttribute="leading" id="FIn-mG-z7N"/>
                 <constraint firstItem="ALg-oM-8Rb" firstAttribute="top" secondItem="x8M-c3-hDL" secondAttribute="bottom" constant="2" id="G1h-YN-01E"/>
                 <constraint firstItem="XhZ-tk-Dz9" firstAttribute="bottom" secondItem="S5r-Je-yQV" secondAttribute="bottom" id="Hc7-o5-RI4"/>
+                <constraint firstItem="S5r-Je-yQV" firstAttribute="height" secondItem="UgS-o5-nvl" secondAttribute="height" multiplier="0.3" id="Owe-Rs-j4t"/>
                 <constraint firstItem="S5r-Je-yQV" firstAttribute="trailing" secondItem="XhZ-tk-Dz9" secondAttribute="trailing" constant="4" id="SJN-7k-qQC"/>
                 <constraint firstItem="3cf-sz-BCS" firstAttribute="trailing" secondItem="XhZ-tk-Dz9" secondAttribute="trailing" constant="7" id="T8K-xG-C2G"/>
                 <constraint firstItem="XhZ-tk-Dz9" firstAttribute="leading" secondItem="S5r-Je-yQV" secondAttribute="leading" constant="3" id="YaI-YO-dp4"/>
                 <constraint firstItem="x8M-c3-hDL" firstAttribute="leading" secondItem="UgS-o5-nvl" secondAttribute="leading" constant="5" id="aHT-2f-tBk"/>
+                <constraint firstItem="3cf-sz-BCS" firstAttribute="height" secondItem="UgS-o5-nvl" secondAttribute="height" multiplier="0.3" id="ggO-9y-rRl"/>
                 <constraint firstItem="H2d-MV-ayA" firstAttribute="leading" secondItem="UgS-o5-nvl" secondAttribute="leading" id="jzw-OU-5Bu"/>
                 <constraint firstItem="ALg-oM-8Rb" firstAttribute="trailing" secondItem="x8M-c3-hDL" secondAttribute="trailing" id="nJg-wZ-MJI"/>
                 <constraint firstItem="H2d-MV-ayA" firstAttribute="top" secondItem="UgS-o5-nvl" secondAttribute="top" id="oIr-fC-R6j"/>
@@ -75,8 +71,10 @@
             <size key="customSize" width="220" height="123"/>
             <connections>
                 <outlet property="borderView" destination="H2d-MV-ayA" id="qtb-fQ-pL9"/>
+                <outlet property="bottomView" destination="S5r-Je-yQV" id="oqa-2f-PRs"/>
                 <outlet property="locationLabel" destination="ALg-oM-8Rb" id="CaY-EW-RBl"/>
                 <outlet property="titleLabel" destination="x8M-c3-hDL" id="6Gd-Xe-kxN"/>
+                <outlet property="topView" destination="3cf-sz-BCS" id="oWc-U7-Xjy"/>
             </connections>
             <point key="canvasLocation" x="84.799999999999997" y="75.112443778110944"/>
         </collectionViewCell>
