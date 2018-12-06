@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UgS-o5-nvl" customClass="LongPressEventCell" customModule="DragItems" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UgS-o5-nvl" customClass="LongPressEventCell" customModule="CalendarWeekView" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="220" height="123"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,12 +38,32 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cf-sz-BCS" userLabel="Top View">
+                        <rect key="frame" x="0.0" y="0.0" width="227" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="w4A-1p-W7w"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5r-Je-yQV" userLabel="Bottom View">
+                        <rect key="frame" x="-3" y="113" width="227" height="10"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="V5z-Yv-oh5"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="3cf-sz-BCS" firstAttribute="top" secondItem="XhZ-tk-Dz9" secondAttribute="top" id="0hn-rT-t1a"/>
                 <constraint firstItem="ALg-oM-8Rb" firstAttribute="leading" secondItem="x8M-c3-hDL" secondAttribute="leading" id="70N-5Z-zXf"/>
                 <constraint firstItem="x8M-c3-hDL" firstAttribute="top" secondItem="UgS-o5-nvl" secondAttribute="top" constant="5" id="EVs-k1-bId"/>
+                <constraint firstItem="3cf-sz-BCS" firstAttribute="leading" secondItem="XhZ-tk-Dz9" secondAttribute="leading" id="FIn-mG-z7N"/>
                 <constraint firstItem="ALg-oM-8Rb" firstAttribute="top" secondItem="x8M-c3-hDL" secondAttribute="bottom" constant="2" id="G1h-YN-01E"/>
+                <constraint firstItem="XhZ-tk-Dz9" firstAttribute="bottom" secondItem="S5r-Je-yQV" secondAttribute="bottom" id="Hc7-o5-RI4"/>
+                <constraint firstItem="S5r-Je-yQV" firstAttribute="trailing" secondItem="XhZ-tk-Dz9" secondAttribute="trailing" constant="4" id="SJN-7k-qQC"/>
+                <constraint firstItem="3cf-sz-BCS" firstAttribute="trailing" secondItem="XhZ-tk-Dz9" secondAttribute="trailing" constant="7" id="T8K-xG-C2G"/>
+                <constraint firstItem="XhZ-tk-Dz9" firstAttribute="leading" secondItem="S5r-Je-yQV" secondAttribute="leading" constant="3" id="YaI-YO-dp4"/>
                 <constraint firstItem="x8M-c3-hDL" firstAttribute="leading" secondItem="UgS-o5-nvl" secondAttribute="leading" constant="5" id="aHT-2f-tBk"/>
                 <constraint firstItem="H2d-MV-ayA" firstAttribute="leading" secondItem="UgS-o5-nvl" secondAttribute="leading" id="jzw-OU-5Bu"/>
                 <constraint firstItem="ALg-oM-8Rb" firstAttribute="trailing" secondItem="x8M-c3-hDL" secondAttribute="trailing" id="nJg-wZ-MJI"/>
@@ -58,7 +78,7 @@
                 <outlet property="locationLabel" destination="ALg-oM-8Rb" id="CaY-EW-RBl"/>
                 <outlet property="titleLabel" destination="x8M-c3-hDL" id="6Gd-Xe-kxN"/>
             </connections>
-            <point key="canvasLocation" x="85" y="76"/>
+            <point key="canvasLocation" x="84.799999999999997" y="75.112443778110944"/>
         </collectionViewCell>
     </objects>
 </document>

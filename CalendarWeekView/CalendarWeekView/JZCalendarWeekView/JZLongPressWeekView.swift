@@ -440,111 +440,111 @@ extension JZLongPressWeekView: UIGestureRecognizerDelegate {
     }
     
     @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
-        print("tap")
-        
-        var currentRect: CGRect?
-        
-        let pointInSelfView = gestureRecognizer.location(in: self)
-        
-        /// Used for get startDate of longPressView
-        let pointInCollectionView = gestureRecognizer.location(in: collectionView)
-        
-        var currentMovingCell: UICollectionViewCell!
-        
-        if let indexPath = collectionView.indexPathForItem(at: pointInCollectionView) {
-            currentMovingCell = collectionView.cellForItem(at: indexPath)
-            
-            currentRect = currentMovingCell.frame
-            
-            currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
-            
-            // The startDate of the longPressView (the date of top Y in longPressView)
-            let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
-            
-            tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
-            
-            if currentRect == CGRect.zero {
-                print("CGRect.zero")
-            } else {
-                print("isInCenterContainsPoint")
-            }
-        }
+//        print("tap")
+//        
+//        var currentRect: CGRect?
+//        
+//        let pointInSelfView = gestureRecognizer.location(in: self)
+//        
+//        /// Used for get startDate of longPressView
+//        let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+//        
+//        var currentMovingCell: UICollectionViewCell!
+//        
+//        if let indexPath = collectionView.indexPathForItem(at: pointInCollectionView) {
+//            currentMovingCell = collectionView.cellForItem(at: indexPath)
+//            
+//            currentRect = currentMovingCell.frame
+//            
+//            currentEditingInfo.event = (currentMovingCell as! JZLongPressEventCell).event
+//            
+//            // The startDate of the longPressView (the date of top Y in longPressView)
+//            let longPressViewStartDate: Date! = getTapStartDate(pointInCollectionView: pointInCollectionView, pointInSelfView: pointInSelfView)
+//            
+//            tapGestureDelegate?.tap(self, editingEvent: currentEditingInfo.event, didEndMoveLongPressAt: longPressViewStartDate)
+//            
+//            if currentRect == CGRect.zero {
+//                print("CGRect.zero")
+//            } else {
+//                print("isInCenterContainsPoint")
+//            }
+//        }
     }
     
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
-        print("pan")
-        
-        var currentRect: CGRect?
-        
-        let point = gestureRecognizer.location(in: self)
-        
-        if gestureRecognizer.state == .began {
-            let x = self.frame.origin.x
-            let y = self.frame.origin.y
-            print("pan began: \(x) : \(y)")
-        } else if gestureRecognizer.state == .changed {
-            
-            //            let x = self.frame.origin.x
-            //            let y = self.frame.origin.y
-            
-            let pointInCollectionView = gestureRecognizer.location(in: collectionView)
-            
-            let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
-            
-            if indexPath != nil {
-                var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
-                
-                let y = gestureRecognizer.translation(in: currentMovingCell).y
-                
-                currentRect = currentMovingCell.frame
-                
-                
-                if currentRect == CGRect.zero {
-                    print("CGRect.zero")
-                } else {
-                    currentMovingCell.frame.size.height += y
-                    
-                    if isInCenterContainsPoint(point, currentRect: currentRect!) {
-                        print("[11111111]isInCenterContainsPoint")
-                    } else if isCornerContainsPoint(point, currentRect: currentRect!) {
-                        //                        panningMode = getPannigModeByPoint(point)
-                        print("[22222222]isCornerContainsPoint")
-                    } else if isEdgeContainsPoint(point, currentRect: currentRect!) {
-                        //                        panningMode = getPannigModeByPoint(point)
-                        print("[33333333]isEdgeContainsPoint")
-                    }
-                }
-            }
-        } else if gestureRecognizer.state == .ended {
-            
-            let pointInCollectionView = gestureRecognizer.location(in: collectionView)
-            
-            let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
-            
-            if indexPath != nil {
-                var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
-                let y = gestureRecognizer.translation(in: currentMovingCell).y
-                
-                currentRect = currentMovingCell.frame
-                
-//                currentMovingCell.frame.size.height += y
-                print("pan changed: \(y)")
-                
-                if currentRect == CGRect.zero {
-                    print("CGRect.zero")
-                } else {
-                    if isInCenterContainsPoint(point, currentRect: currentRect!) {
-                        print("[11111111]isInCenterContainsPoint")
-                    } else if isCornerContainsPoint(point, currentRect: currentRect!) {
-//                        panningMode = getPannigModeByPoint(point)
-                        print("[22222222]isCornerContainsPoint")
-                    } else if isEdgeContainsPoint(point, currentRect: currentRect!) {
-//                        panningMode = getPannigModeByPoint(point)
-                        print("[33333333]isEdgeContainsPoint")
-                    }
-                }
-            }
-        }
+//        print("pan")
+//
+//        var currentRect: CGRect?
+//
+//        let point = gestureRecognizer.location(in: self)
+//
+//        if gestureRecognizer.state == .began {
+//            let x = self.frame.origin.x
+//            let y = self.frame.origin.y
+//            print("pan began: \(x) : \(y)")
+//        } else if gestureRecognizer.state == .changed {
+//
+//            //            let x = self.frame.origin.x
+//            //            let y = self.frame.origin.y
+//
+//            let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+//
+//            let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
+//
+//            if indexPath != nil {
+//                var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
+//
+//                let y = gestureRecognizer.translation(in: currentMovingCell).y
+//
+//                currentRect = currentMovingCell.frame
+//
+//
+//                if currentRect == CGRect.zero {
+//                    print("CGRect.zero")
+//                } else {
+//                    currentMovingCell.frame.size.height += y
+//
+//                    if isInCenterContainsPoint(point, currentRect: currentRect!) {
+//                        print("[11111111]isInCenterContainsPoint")
+//                    } else if isCornerContainsPoint(point, currentRect: currentRect!) {
+//                        //                        panningMode = getPannigModeByPoint(point)
+//                        print("[22222222]isCornerContainsPoint")
+//                    } else if isEdgeContainsPoint(point, currentRect: currentRect!) {
+//                        //                        panningMode = getPannigModeByPoint(point)
+//                        print("[33333333]isEdgeContainsPoint")
+//                    }
+//                }
+//            }
+//        } else if gestureRecognizer.state == .ended {
+//
+//            let pointInCollectionView = gestureRecognizer.location(in: collectionView)
+//
+//            let indexPath = collectionView.indexPathForItem(at: pointInCollectionView)
+//
+//            if indexPath != nil {
+//                var currentMovingCell: UICollectionViewCell! = collectionView.cellForItem(at: indexPath!)
+//                let y = gestureRecognizer.translation(in: currentMovingCell).y
+//
+//                currentRect = currentMovingCell.frame
+//
+////                currentMovingCell.frame.size.height += y
+//                print("pan changed: \(y)")
+//
+//                if currentRect == CGRect.zero {
+//                    print("CGRect.zero")
+//                } else {
+//                    if isInCenterContainsPoint(point, currentRect: currentRect!) {
+//                        print("[11111111]isInCenterContainsPoint")
+//                    } else if isCornerContainsPoint(point, currentRect: currentRect!) {
+////                        panningMode = getPannigModeByPoint(point)
+//                        print("[22222222]isCornerContainsPoint")
+//                    } else if isEdgeContainsPoint(point, currentRect: currentRect!) {
+////                        panningMode = getPannigModeByPoint(point)
+//                        print("[33333333]isEdgeContainsPoint")
+//                    }
+//                }
+//            }
+//        }
         
     }
     
