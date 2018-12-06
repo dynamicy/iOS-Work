@@ -19,6 +19,9 @@ class LongPressEventCell: JZLongPressEventCell {
     
     @IBOutlet weak var bottomView: UIView!
     
+    // Update time delegate
+    var updateTimeDelegate: UpdateTimeEventDelegate?
+    
     var currentX: CGFloat?
     
     var currentY: CGFloat?
@@ -73,6 +76,7 @@ extension LongPressEventCell: UIGestureRecognizerDelegate {
         if self.currentY != nil && point.y != self.currentY {
             self.frame.origin.y += point.y
             self.frame.size.height -= point.y
+            self.updateTimeDelegate?.setTime()
         }
         
         self.currentY = point.y
@@ -85,6 +89,7 @@ extension LongPressEventCell: UIGestureRecognizerDelegate {
         if self.currentY != nil && point.y != self.currentY {
             let diff = point.y - currentY!
             self.frame.size.height += diff
+            self.updateTimeDelegate?.setTime()
         }
         
         self.currentY = point.y

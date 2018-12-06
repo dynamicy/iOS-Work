@@ -9,6 +9,8 @@ import UIKit
 
 class DefaultWeekView: JZLongPressWeekView {
     
+    var forceUpdateTimeDelegate: ForceUpdateTimeDelegate?
+    
     override func registerViewClasses() {
         super.registerViewClasses()
         
@@ -21,6 +23,8 @@ class DefaultWeekView: JZLongPressWeekView {
         let selectedEvent = getCurrentEvent(with: indexPath) as! AllDayEvent
         
         cell.configureCell(event: selectedEvent)
+        
+        cell.updateTimeDelegate = self
         return cell
     }
     
@@ -59,5 +63,14 @@ class DefaultWeekView: JZLongPressWeekView {
 //        cell.configureCell(event: getCurrentEvent(with: indexPath) as! AllDayEvent)
         
         self.collectionView.reloadData()
+    }
+}
+
+extension DefaultWeekView: UpdateTimeEventDelegate {
+    
+    public func setTime() {
+        print("update time!!")
+        
+        forceUpdateTimeDelegate?.setTime()
     }
 }

@@ -18,6 +18,11 @@ public protocol PanGestureDelegate: class {
     func pan()
 }
 
+public protocol UpdateTimeEventDelegate : class {
+    
+    func setTime()
+}
+
 public protocol JZLongPressViewDelegate: class {
     
     /// When addNew long press gesture ends, this function will be called.

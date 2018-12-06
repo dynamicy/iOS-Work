@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol ForceUpdateTimeDelegate : class {
+    
+    func setTime()
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var calendarWeekView: DefaultWeekView!
@@ -34,6 +39,7 @@ extension ViewController {
     
     private func setupCalendarView() {
         calendarWeekView.baseDelegate = self
+        calendarWeekView.forceUpdateTimeDelegate = self
         
         if viewModel.currentSelectedData != nil {
             setupCalendarViewWithSelectedData()
@@ -161,6 +167,7 @@ extension ViewController: JZLongPressViewDelegate, JZLongPressViewDataSource {
 
 extension ViewController: TapGestureDelegate {
     
+    // KOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOFKOF
     func tap(_ weekView: JZLongPressWeekView, editingEvent: JZBaseEvent, didEndMoveLongPressAt startDate: Date) {
         let event = editingEvent as! AllDayEvent
         let duration = Calendar.current.dateComponents([.minute], from: event.startDate, to: event.endDate).minute!
@@ -172,4 +179,10 @@ extension ViewController: TapGestureDelegate {
         viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
         weekView.forceReload(reloadEvents: viewModel.eventsByDate)
     }
+}
+
+extension ViewController: ForceUpdateTimeDelegate {
+    func setTime() {
+        print("KOF-KOF-KOF-KOF-KOF-KOF")
+    }        
 }
