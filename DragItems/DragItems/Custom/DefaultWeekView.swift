@@ -19,8 +19,6 @@ class DefaultWeekView: JZLongPressWeekView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LongPressEventCell.className, for: indexPath) as! LongPressEventCell
         
         let selectedEvent = getCurrentEvent(with: indexPath) as! AllDayEvent
-//        selectedEvent.title = "frjkgljrlkg"
-//        selectedEvent.endDate = selectedEvent.endDate.add(component: .hour, value: 1)
         
         cell.configureCell(event: selectedEvent)
         return cell

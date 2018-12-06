@@ -11,8 +11,7 @@ class AllDayEvent: JZAllDayEvent {
     
     var location: String
     var title: String
-    
-    
+        
     init(id: String, title: String, startDate: Date, endDate: Date, location: String, isAllDay: Bool) {
         self.location = location
         self.title = title

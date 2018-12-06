@@ -19,6 +19,10 @@ class LongPressEventCell: JZLongPressEventCell {
     
     @IBOutlet weak var bottomView: UIView!
     
+    var currentX: CGFloat?
+    
+    var currentY: CGFloat?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,10 +41,6 @@ class LongPressEventCell: JZLongPressEventCell {
         let bottomViewLongPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleBottomViewLongPressGesture(_:)))
         bottomViewLongPressGesture.delegate = self
         bottomView.addGestureRecognizer(bottomViewLongPressGesture)
-        
-        let mainViewLongPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleMainViewLongPressGesture(_:)))
-        mainViewLongPressGesture.delegate = self
-        self.addGestureRecognizer(mainViewLongPressGesture)
     }
     
     func setupBasic() {
@@ -67,15 +67,34 @@ class LongPressEventCell: JZLongPressEventCell {
 extension LongPressEventCell: UIGestureRecognizerDelegate {
     
     @objc private func handleTopViewLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        print("1111")
+        
+        let point = gestureRecognizer.location(in: self)
+        
+        if self.currentY != nil && point.y != self.currentY {
+            self.frame.origin.y += point.y
+            self.frame.size.height -= point.y
+        }
+        
+        self.currentY = point.y
     }
     
     @objc private func handleBottomViewLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        print("222222")
+        
+        let point = gestureRecognizer.location(in: self)
+        
+        if self.currentY != nil && point.y != self.currentY {
+            let diff = point.y - currentY!
+            self.frame.size.height += diff
+        }
+        
+        self.currentY = point.y
     }
     
     @objc private func handleMainViewLongPressGesture(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        print("33333")
+
+        let point = gestureRecognizer.location(in: self)
+        
+        self.frame.origin.y = point.y
     }
 }
 
