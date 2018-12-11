@@ -19,10 +19,8 @@ public protocol PanGestureDelegate: class {
 }
 
 public protocol UpdateTimeEventDelegate : class {
-    
-    func setTime()
-    
-    func setTime(point: CGPoint, units: Int)
+        
+    func setTime(cell: JZLongPressEventCell, units: Int)
 }
 
 public protocol JZLongPressViewDelegate: class {

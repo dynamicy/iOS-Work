@@ -9,12 +9,13 @@ import UIKit
 
 public protocol ForceUpdateTimeDelegate : class {
     
-    func setTime()
+//    func setTime()
     
-    func setTime(point: CGPoint, units: Int)
+//    func setTime(point: CGPoint, units: Int)
     
 //    func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent)
-    func updateTime(_ weekView: JZLongPressWeekView)
+//    func updateTime(_ weekView: JZLongPressWeekView)
+    func updateTime(cell: JZLongPressEventCell, units: Int)
 }
 
 class ViewController: UIViewController {
@@ -187,30 +188,17 @@ extension ViewController: TapGestureDelegate {
 }
 
 extension ViewController: ForceUpdateTimeDelegate {
-    func updateTime(_ weekView: JZLongPressWeekView) {
-        print("SOP-SOP-SOP-SOP-SOP-SOP")
+    func updateTime(cell: JZLongPressEventCell, units: Int) {
+         print("")
     }
-    
-    func setTime() {
-        print("KOF-KOF-KOF-KOF-KOF-KOF")
-    }
-    
-    func setTime(point: CGPoint, units: Int) {
-        
-        let hasItemAtPoint = calendarWeekView.collectionView.indexPathForItem(at: point) != nil
-        
-        calendarWeekView.forceReload(reloadEvents: viewModel.eventsByDate)
-        print("point: \(point)")
-        print("units: \(units)")
-    }
-    
-    func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent) {
-        let selectedIndex = viewModel.events.index(where: { $0.id == editingEvent.id })!
-        
-        viewModel.events[selectedIndex] = editingEvent
-        viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
-        weekView.forceReload(reloadEvents: viewModel.eventsByDate)
-    }
+
+//    func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent) {
+//        let selectedIndex = viewModel.events.index(where: { $0.id == editingEvent.id })!
+//
+//        viewModel.events[selectedIndex] = editingEvent
+//        viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
+//        weekView.forceReload(reloadEvents: viewModel.eventsByDate)
+//    }
 
 //    func decreaseTime(_ weekView: JZLongPressWeekView, event: AllDayEvent) {
 //        let selectedIndex = viewModel.events.index(where: { $0.id == event.id })!
