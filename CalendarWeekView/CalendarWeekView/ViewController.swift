@@ -53,7 +53,7 @@ extension ViewController {
             calendarWeekView.setupCalendar(numOfDays: 1,
                                            setDate: Date(),
                                            allEvents: viewModel.eventsByDate,
-                                           scrollType: .pageScroll)
+                                           scrollType: .sectionScroll)
         }
         
         // LongPress delegate, datasorce and type setup
@@ -189,6 +189,8 @@ extension ViewController: TapGestureDelegate {
 
 extension ViewController: ForceUpdateTimeDelegate {
     func updateTime(cell: JZLongPressEventCell, units: Int) {
+        
+        var temp = self.calendarWeekView.collectionView.indexPath(for: cell)
          print("")
     }
 
