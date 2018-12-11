@@ -21,6 +21,8 @@ public protocol PanGestureDelegate: class {
 public protocol UpdateTimeEventDelegate : class {
     
     func setTime()
+    
+    func setTime(point: CGPoint, units: Int)
 }
 
 public protocol JZLongPressViewDelegate: class {
@@ -183,7 +185,7 @@ open class JZLongPressWeekView: JZBaseWeekView {
             #selector(handlePanGesture(_:)))
         panGesture.delegate = self
         
-        collectionView.addGestureRecognizer(tapGesture)
+//        collectionView.addGestureRecognizer(tapGesture)
         collectionView.addGestureRecognizer(longPressGesture)
         collectionView.addGestureRecognizer(panGesture)
     }

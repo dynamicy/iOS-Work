@@ -11,6 +11,8 @@ public protocol ForceUpdateTimeDelegate : class {
     
     func setTime()
     
+    func setTime(point: CGPoint, units: Int)
+    
 //    func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent)
     func updateTime(_ weekView: JZLongPressWeekView)
 }
@@ -191,6 +193,15 @@ extension ViewController: ForceUpdateTimeDelegate {
     
     func setTime() {
         print("KOF-KOF-KOF-KOF-KOF-KOF")
+    }
+    
+    func setTime(point: CGPoint, units: Int) {
+        
+        let hasItemAtPoint = calendarWeekView.collectionView.indexPathForItem(at: point) != nil
+        
+        calendarWeekView.forceReload(reloadEvents: viewModel.eventsByDate)
+        print("point: \(point)")
+        print("units: \(units)")
     }
     
     func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent) {

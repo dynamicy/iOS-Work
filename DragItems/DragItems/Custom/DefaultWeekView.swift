@@ -68,6 +68,13 @@ class DefaultWeekView: JZLongPressWeekView {
 
 extension DefaultWeekView: UpdateTimeEventDelegate {
     
+    func setTime(point: CGPoint, units: Int) {
+        print("point: \(point)")
+        print("units: \(units)")
+        
+        forceUpdateTimeDelegate?.setTime(point: point, units: units)
+    }
+    
     public func setTime() {
         print("update time!!")
         

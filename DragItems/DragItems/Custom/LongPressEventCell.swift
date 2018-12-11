@@ -103,9 +103,12 @@ extension LongPressEventCell: UIGestureRecognizerDelegate {
                 self.frame.size.height = 49
             }
             
+            let units: Int = Int(self.frame.size.height / 12)
+            
             print("[self.frame.size.height]: \(self.frame.size.height)")
             
             self.updateTimeDelegate?.setTime()
+            self.updateTimeDelegate?.setTime(point: point, units: units)
         }
         
         self.currentY = point.y
