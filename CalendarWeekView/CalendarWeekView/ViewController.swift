@@ -10,6 +10,9 @@ import UIKit
 public protocol ForceUpdateTimeDelegate : class {
     
     func setTime()
+    
+//    func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent)
+    func updateTime(_ weekView: JZLongPressWeekView)
 }
 
 class ViewController: UIViewController {
@@ -47,7 +50,7 @@ extension ViewController {
             calendarWeekView.setupCalendar(numOfDays: 1,
                                            setDate: Date(),
                                            allEvents: viewModel.eventsByDate,
-                                           scrollType: .sectionScroll)
+                                           scrollType: .pageScroll)
         }
         
         // LongPress delegate, datasorce and type setup
@@ -182,7 +185,27 @@ extension ViewController: TapGestureDelegate {
 }
 
 extension ViewController: ForceUpdateTimeDelegate {
+    func updateTime(_ weekView: JZLongPressWeekView) {
+        print("SOP-SOP-SOP-SOP-SOP-SOP")
+    }
+    
     func setTime() {
         print("KOF-KOF-KOF-KOF-KOF-KOF")
-    }        
+    }
+    
+    func updateTime(_ weekView: JZLongPressWeekView, editingEvent: AllDayEvent) {
+        let selectedIndex = viewModel.events.index(where: { $0.id == editingEvent.id })!
+        
+        viewModel.events[selectedIndex] = editingEvent
+        viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
+        weekView.forceReload(reloadEvents: viewModel.eventsByDate)
+    }
+
+//    func decreaseTime(_ weekView: JZLongPressWeekView, event: AllDayEvent) {
+//        let selectedIndex = viewModel.events.index(where: { $0.id == event.id })!
+//
+//        viewModel.events[selectedIndex] = event
+//        viewModel.eventsByDate = JZWeekViewHelper.getIntraEventsByDate(originalEvents: viewModel.events)
+//        weekView.forceReload(reloadEvents: viewModel.eventsByDate)
+//    }
 }

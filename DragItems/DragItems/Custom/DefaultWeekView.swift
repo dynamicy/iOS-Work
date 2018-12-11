@@ -72,5 +72,6 @@ extension DefaultWeekView: UpdateTimeEventDelegate {
         print("update time!!")
         
         forceUpdateTimeDelegate?.setTime()
+//        forceUpdateTimeDelegate?.updateTime(self, editingEvent: <#T##AllDayEvent#>)
     }
 }
